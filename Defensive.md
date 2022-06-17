@@ -7,7 +7,7 @@
 - Patterns of Traffic & Behavior
 - Suggestions for Going Further
 
-### Network Topology
+## Network Topology
 
 The following machines were identified on the network:
 
@@ -41,7 +41,7 @@ The following machines were identified on the network:
 ![Network Diagram](https://user-images.githubusercontent.com/85250007/174402039-a850c807-b161-4d46-8cec-198eab27dd76.png)
 
 
-### Description of Targets
+## Description of Targets
 - The target of this attack was: `Target 1` (192.168.1.110).
 
 - Two VMs on the network were vulnerable to attack due to weak security implementation services and administration: Target 1 (192.168.1.110) and Target 2 (192.168.1.115). However, only Target 1 is covered and was attacked.
@@ -112,4 +112,60 @@ CPU Usage Monitor is implemented as follows:
 
 ![CPUUsageMonitor](https://user-images.githubusercontent.com/85250007/174405814-ad309b1f-9592-403f-8bc8-b1a4cf99b58f.png)
 
-### Suggestions for Going Further
+## Suggestions for Going Further
+
+Each alert above pertains to a specific vulnerability/exploit. If you recall that alerts only detect malicious behavior, but do not stop it. For each vulnerability/exploit identified by the alerts above, suggest a patch. E.g., implementing a blocklist is an effective tactic against brute-force attacks.
+
+The logs and alerts generated during the assessment suggest that this network is susceptible to several active threats. In addition to watching for occurrences of such threats, the network should be hardened against them. The Defensive Team suggests that IT implement the fixes below to protect the network:
+
+**Excessive HTTP Errors**
+- Patch: WordPress Hardening
+    - Implement regular updates to WordPress 
+        - WordPress Core 
+        - PHP version
+        - Plugins
+    - Install security plugin(s)
+        - Ex. Wordfence (adds security functionality)
+    - Disable unused WordPress features and settings like:
+        - WordPress XML-RPC (on by default)
+        - WordPress REST API (on by default)
+    - Block requests to /?author=<number> by configuring web server settings
+    - Remove WordPress logins from being publicly accessible specifically:
+        - /wp-admin 
+        - /wp-login.php
+- Why It Works: 
+    - Regular updates to WordPress, the PHP version and plugins is an easy way to implement patches or fixes to exploits/vulnerabilities.
+    - Depending on the WordPress security plugin it can provide things like:
+        - Malware scans
+        - Firewall
+        - IP options (to monitor/block suspicious traffic)
+    - REST API is used by WPScan to enumerate users
+        - Disabling it will help mitigate WPScan or enumeration in general
+    - XML-RPC uses HTTP as it’s method of data transport
+    - WordPress links (permalinks) can include authors (users)
+        - Blocking request to view the all authors (users) helps mitigate against user enumeration attacks
+    - Removal of public access to WordPress login helps reduce the attack surface
+
+**HTTP Request Size Monitor**
+- Patch: Code Injection/DDOS Hardening
+    - Implementation of HTTP Request Limit on the web server
+        - Limits can include a number of things:
+            - Maximum URL Length
+            - Maximum length of a query string
+            - Maximum size of a request
+    - Implementation of input validation on forms
+- Why It Works: 
+    - If an HTTP request URL length, query string and over size limit of the request a 404 range of errors will occur.
+        - This will help reject these requests that are too large.
+    - Input validation can help protect against malicious data anyone attempts to send to the server via the website or application in/across a HTTP request.
+
+**CPU Usage Monitor**
+- Patch: Virus or Malware hardening
+    - Add or update to a good antivirus.
+    - Implement and configure Host Based Intrusion Detection System (HIDS)
+        - Ex. SNORT (HIDS)
+- Why It Works: 
+    - Antiviruses specialize in removal, detection and overall prevention of malicious threats against computers. 
+        - Any modern antivirus usually covers more than viruses and are a robust solution to protecting a computer in general.
+    - HIDS monitors and analyzes internals of computing systems. 
+        - They also monitor and analyze network packets.
