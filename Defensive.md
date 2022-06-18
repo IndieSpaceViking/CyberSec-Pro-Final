@@ -52,7 +52,9 @@ The following machines were identified on the network:
 This scan identifies the services below as potential points of entry:
 
 **Target 1**
-- nmap -sV 192.168.1.110
+
+`nmap -sV 192.168.1.110`
+
      - **Port 22/TCP 	Open 	SSH	OpenSSH 6.7p1 Debian 5+deb8u4**
      - **Port 80/TCP 	Open 	HTTP	Apache httpd 2.4.10 (Debian)**
 
