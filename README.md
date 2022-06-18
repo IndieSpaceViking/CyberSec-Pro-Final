@@ -10,7 +10,7 @@
 
 - Use Wireshark to analyze and find malicious activity on the network traffic.
 
-#### Read through the Offensive, Defense, and Network Analysis files to see the work, process and finding that leads up to the final presentation.
+#### Read through the [Offensive](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/blob/main/Offensive.md), [Defense](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/blob/main/Defensive.md), and [Network Analysis](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/blob/main/NetworkAnalysis.md) files to see the work, process and finding that leads up to the final presentation.
 
 #### View the Google slide of full findings here.
 
