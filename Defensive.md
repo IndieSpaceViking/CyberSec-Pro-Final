@@ -46,7 +46,7 @@ This scan identifies the services below as potential points of entry:
 Traffic to these services should be carefully monitored. To this end, we have implemented the alerts below:
 
 
-**Excessive HTTP Errors**
+**Alert 1: Excessive HTTP Errors**
 
 Excessive HTTP Errors is implemented as follows:
 
@@ -63,7 +63,7 @@ Excessive HTTP Errors is implemented as follows:
 
 ![ExcessiveHTTPErrors](https://user-images.githubusercontent.com/85250007/174405755-ccd74126-5e84-49f8-b570-2385d8060e59.png)
 
-**HTTP Request Size Monitor**
+**Alert 2: HTTP Request Size Monitor**
 
 HTTP Request Size Monitor is implemented as follows:
 
@@ -80,7 +80,7 @@ HTTP Request Size Monitor is implemented as follows:
 
 ![HTTPRSM](https://user-images.githubusercontent.com/85250007/174405792-717b4e8c-6b4f-4b5e-b2f3-e492de2219a1.png)
 
-**CPU Usage Monitor**
+**Alert 3: CPU Usage Monitor**
 
 CPU Usage Monitor is implemented as follows:
 
