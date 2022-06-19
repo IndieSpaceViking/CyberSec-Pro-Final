@@ -12,7 +12,7 @@ We are to report back with all finding to both SOC manager and the Engineering m
 
 ### Intro
 
-Read through the [Offensive](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/blob/main/Offensive.md), [Defense](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/blob/main/Defensive.md), and [Network Analysis](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/blob/main/NetworkAnalysis.md) files to see the work, process and finding that leads up to the final presentation.
+Read through the Offensive, Defense, and Network Analysis files to see the work, process and finding that leads up to the final presentation.
 
 - [Offensive](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/blob/main/Offensive.md): To access vulnerabilities, weaknesses, and exploits to gain access to a vulnerable WordPress server and to verify that the Kibana rules work as intended.
 
