@@ -9,32 +9,15 @@
 
 ## Network Topology
 
-The following machines were identified on the network:
+| Name       | Function   | IP Address   | Operating System   |
+|----------|----------|------------|------------------|
+| Azure Machine. |Jump Box/Azure Cloud Environment  | 192.168.1.1   | Microsoft Windows RPC            |
+| Kali. |Attacker/ Pen Test machine    | 192.168.1.90 |Kali Release 2020.1 / Kernel: Linux 5.4.0 |
+| ELK Stack |Data Digestion, Logging, Systems Analysis Intrusion Detection System    | 192.168.1.100 |Ubuntu 18.04.1 LTS            |
+| Capstone. |Sending logs to ELK Stack/Apache Web Server. |192.168.1.105. |Ubuntu 18.04.1 LTS. |
+| Target1 |WordPress Host |192.168.1.110  |Debian GNU/Linux 8/v3.16.0-6 |
+| Target2 |WordPress Host |192.168.1.115  |Debian GNU/Linux 8/v3.16.0-6 |
 
-- Kali
-  - **Operating System**: Kali Release 2020.1 / Kernel: Linux 5.4.0
-  - **Purpose**: Attacker / pen test machine
-  - **IP Address**: 192.168.1.90
-
-- ELK
-  - **Operating System**: Ubuntu 18.04
-  - **Purpose**: Elasticsearch & Kibana Stack
-  - **IP Address**: 192.168.1.100
-
-- Target 1
-  - **Operating System**: Debian GNU/Linux 8/v3.16.0-6
-  - **Purpose**: WordPress host
-  - **IP Address**: 192.168.1.110
-
-- Target 2
-  - **Operating System**: Debian GNU/Linux 8/v3.16.0-6
-  - **Purpose**: WordPress host
-  - **IP Address**: 192.168.1.115
-
-- Capstone
-  - **Operating System**: Ubuntu 18.04
-  - **Purpose**: The Vulnerable Web Server
-  - **IP Address**: 192.168.1.105
 
 **Network Diagram:**
 
