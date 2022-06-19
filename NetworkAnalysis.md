@@ -120,3 +120,32 @@ Filter: `ip.addr==10.0.0.201 and http.request.method==GET`
 *OR* `ip.addr==10.0.0.201 and (http.request.uri contains “.torrent”)`
 
 ![Pcap torrent file](https://user-images.githubusercontent.com/85250007/174459027-5c5ee0db-77f4-40a3-8496-fb0be735275a.gif)
+
+### Closing Remarks 
+
+-WordPress is insecure by default.
+
+-The Sucuri Plugin can easily be installed and configured even by the non-developer user.
+
+-Editing user permission and configuration files can be implemented by a technically savvy user or by a contractor.
+
+-Maintatining a SIEM with appropriate alerts and thresholds is necessary to monitor all malicious traffic.
+
+-To prevent Port scanning on your IP, a well-configured firewall will be needed to alert and prevent any information to be gathered.
+
+-WordPress has Firewall Plugins available for easy installation for non-developer users that route website traffic through a cloud proxy server.
+
+-All traffic should be denied by default. Then, only allowed traffic is added in. Choose the allowed traffic based on the following parameters:
+
+       -Source IP address
+       -Destination IP address
+       -Destination Port
+       -Protocol of the Traffic
+    
+-It works because only legitmate users can access the webserver.
+
+-Validate and sanitize URL inputs.
+
+       -Scan for escape characters or other special symbols for the application language and operating system, such as comment marks.
+       -Create a whitelist for a limited set of values for the URL.
+       -Treat all data as zero-trusted.
