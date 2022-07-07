@@ -202,55 +202,6 @@ The following vulnerabilities were identified on each target:
 
 ### Exploitation
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Exploitation
-
 The Offensive Team was able to penetrate `Target 2` and retrieve the following confidential data:
 
 **Target 2**
