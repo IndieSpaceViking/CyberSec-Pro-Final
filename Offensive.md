@@ -156,6 +156,62 @@ The Offensive Team was able to penetrate `Target 1` and retrieve the following c
 
 
 
+### Exposed Services
+
+Target 2 exposes the same WordPress site as Target 1, but with better security hardning. Therefore, it must be exploited differently that target 1. The steps for completing this assessment are enumerated below. All details required to capture the first three flags on Target 2 are included.
+
+Commands: Escalate to root with `sudo su` and the `Run /opt/setup`
+
+Nmap scan results for each machine reveal the below services and OS details:
+
+Command: `$ nmap -A 192.168.1.*` or `$ nmap -sV 192.168.1.115`
+
+Output screenshot:
+
+![Nmap 192 168 1 115](https://user-images.githubusercontent.com/85250007/177840106-c8cdb6f7-295e-42e2-bfb2-38e0ada633ac.gif)
+
+
+This scan identifies the services below as potential points of entry:
+**Target 2**
+1. Port 22/TCP 	  Open 	SSH
+2. Port 80/TCP 	  Open 	HTTP
+3. Port 111/TCP 	Open 	rcpbind
+4. Port 139/TCP 	Open 	netbios-ssn
+5. Port 445/TCP 	Open 	netbios-ssn
+
+The following vulnerabilites were identified on Target 2:
+1. CVE-2016-10033 (Remote Code Execution Vulnerability in PHPMailer)
+2. CVE-2021-28041 open SSH
+3. CVE-2017-15710 Apache https 2.4.10
+4. CVE-2017-8779 exploit on open rpcbind port could lead to remote DoS
+5. CVE-2017-7494 Samba NetBIOS
+
+
+### Critical Vulnerabilities
+The following vulnerabilities were identified on each target:
+
+**Target 2**
+1. CVE-2016-10033 (Remote Code Execution Vulnerability in PHPMailer 5.2.16)
+     Get access to web services and search for a lot of confidential information.
+        Exploiting PHPMail with back connection (reverse shell) from the target
+2. Network Mapping and User Enumeration (WordPress site)
+     Nmap was used to discover open ports.
+        Able to discover open ports and tailor their attacks accordingly.
+3. Misconfiguration of User Privileges/Privilege Escalation
+    The attackers noticed that the root user has sudo privileges for python
+       Able to utilize root’s python privileges in order to escalate for the
+       privilege to other folders. 
+4. Weak Root Password
+    The root login had a weak password and the attackers were able to discover it by
+    guessing.
+        Able to correctly guess a root's password.
+     
+
+
+### Exploitation
+
+
+
 
 
 
