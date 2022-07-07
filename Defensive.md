@@ -21,13 +21,14 @@
 
 **Network Diagram:**
 
-![Network Diagram](https://user-images.githubusercontent.com/85250007/174402039-a850c807-b161-4d46-8cec-198eab27dd76.png)
+![Network Diagram](https://user-images.githubusercontent.com/85250007/177862176-1346342b-c438-4fb0-ab17-8229c1c599fa.png)
+
 
 
 ## Description of Targets
 - The target of this attack was: `Target 1` (192.168.1.110).
 
-- Two VMs on the network were vulnerable to attack due to weak security implementation services and administration: Target 1 (192.168.1.110) and Target 2 (192.168.1.115). However, only Target 1 is covered and was attacked.
+- Two VMs on the network were vulnerable to attack due to weak security implementation services and administration: Target 1 (192.168.1.110) and Target 2 (192.168.1.115). However, only Target 1 is covered.
 
 - Target 1 is an Apache web server and has SSH enabled, so ports 80 and 22 are possible ports of entry for attackers. As such, the following alerts have been implemented:
 
