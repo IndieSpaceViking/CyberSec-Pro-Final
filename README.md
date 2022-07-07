@@ -21,6 +21,6 @@ Read through the Offensive, Defense, and Network Analysis files to see the work,
 - [Network Analysis](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/blob/main/NetworkAnalysis.md): Use Wireshark to analyze and find malicious activity on the network traffic.
 
 
-#### View the Google slide of full findings [here][CyberSec Pro Final Presentation.pdf](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/files/9066131/CyberSec.Pro.Final.Presentation.pdf)
+#### View the Google slide of full findings [CyberSec Pro Final Presentation.pdf](https://github.com/IndieSpaceViking/CyberSec-Pro-Final/files/9066131/CyberSec.Pro.Final.Presentation.pdf)
 
 ##### Note: The presentation was created by a group represented as a Resurrected team. All documentation for offensive, defensive and network analysis are my own personal work. We were assigned to be a team to come together and bring our findings to light.
