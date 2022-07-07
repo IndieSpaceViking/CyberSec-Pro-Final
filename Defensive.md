@@ -20,8 +20,7 @@
 
 
 **Network Diagram:**
-
-![Network Diagram](https://user-images.githubusercontent.com/85250007/177862176-1346342b-c438-4fb0-ab17-8229c1c599fa.png)
+![CyberSec Final Network](https://user-images.githubusercontent.com/85250007/177862625-34e85132-685a-491e-95a8-f2256b5f5b2b.gif)
 
 
 
