@@ -36,10 +36,14 @@ This scan identifies the services below as potential points of entry:
 
 **Target 1**
 
-`nmap -sV 192.168.1.110`
+`nmap -A 192.168.1.0* `
 
-     - **Port 22/TCP 	Open 	SSH	OpenSSH 6.7p1 Debian 5+deb8u4**
-     - **Port 80/TCP 	Open 	HTTP	Apache httpd 2.4.10 (Debian)**
+-  Target 1 & Target 2: 
+    - Port 22/tcp - ssh
+    - Port 80/tcp - http
+    - Port 111/tcp - rpcbind
+    - Port 139/tcp - netbios-ssn Samba
+    - Port 445/tcp - netbios-ssn Samba
 
 ![Nmap Target1 ports (3)](https://user-images.githubusercontent.com/85250007/174403812-1662b68d-c5e2-4c53-ba92-76d9babeb422.png)
 
