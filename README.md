@@ -6,7 +6,7 @@
 
 We are working as a Security Engineer, supporting the SOC infrastructure. The SOC Analyst have noticed some discrepancies with alerting in the Kibana system and the manager has asked the Security Engineering team to investigate.
 
-We will start by confirming the newly created Kibana alerts are working, after which we will monitor live traffic on the wire to detect any abnormalitites that aren't reflected within th alerted system.
+We will start by confirming the newly created Kibana alerts are working, after which we will monitor live traffic on the wire to detect any abnormalitites that aren't reflected within the alerted system.
 
 We are to report back with all finding to both SOC manager and the Engineering manager with the appropriate analysis.
 
